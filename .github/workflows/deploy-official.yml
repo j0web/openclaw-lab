@@ -3,10 +3,6 @@ name: Deploy Official OpenClaw
 on:
   push:
     branches: [main]
-    paths:
-      - "official/**"
-      - "scripts/deploy-official.sh"
-      - ".github/workflows/deploy-official.yml"
   workflow_dispatch:
 
 jobs:
