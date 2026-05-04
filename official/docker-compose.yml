@@ -1,0 +1,31 @@
+services:
+  openclaw:
+    image: openclaw/openclaw:latest
+    container_name: official-openclaw
+    restart: unless-stopped
+
+    ports:
+      - "18263:8263"
+
+    volumes:
+      - official_openclaw_data:/data
+      - ./workspace:/data/workspace
+
+    env_file:
+      - .env
+
+    networks:
+      - openclaw_net
+
+    cap_drop:
+      - ALL
+
+    security_opt:
+      - no-new-privileges:true
+
+networks:
+  openclaw_net:
+    driver: bridge
+
+volumes:
+  official_openclaw_data:
